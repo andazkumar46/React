@@ -7,10 +7,10 @@ const [numberAllowed, setNumberAllowed] = useState(false);
 const [charAllowed, setCharAllowed] = useState(false);
 const [password, setPassword] = useState("");
 
-// useref hook
+// useRef() hook
 const passwordRef = useRef(null);
 
-// useCallback()
+// useCallback() hook
 const passwordGenerator = useCallback(() => {
   let pass = ""
   let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
@@ -33,6 +33,7 @@ const copyPasswordToClipboard = useCallback(() => {
   window.navigator.clipboard.writeText(password)
 },[password])
 
+// useEffect()
   useEffect(() => {
     passwordGenerator()
   },[length,numberAllowed,charAllowed,passwordGenerator])
